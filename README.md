@@ -37,8 +37,6 @@ I have not found a way to send multiple commands in a single request and suspect
 
 There are a number of other things that the Freesat App can send to the box that should be straight forward to implement once the device has been discovered.
 
-It looks like the Freesat App gets the information is displays (Channel listings, Showcase, On Demand apps) directly from the Freesat box
-
 Examples are
 
 * GET /rc/locale - Get the Serial number, current Postcode and number of tuners for the box
@@ -53,6 +51,8 @@ Examples are
 * Open an item from a list of Showcase items. 
 This includes opening a program directly in the BBC iPlayer app
 Should work with others (Demand 5  etc)
+
+It looks like the Freesat App gets the information is displays (Channel listings, Showcase, On Demand apps) directly from the Freesat box
 
 ## Authors
 
