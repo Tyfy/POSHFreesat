@@ -33,6 +33,26 @@ Once I have identified the correct device from the serial number I can then use 
 
 I have not found a way to send multiple commands in a single request and suspect this will not work so if I want to change channels I need to send 3 individual commands and may need to introduce a small delay.
 
+### Additional Operations
+
+There are a number of other things that the Freesat App can send to the box that should be straight forward to implement once the device has been discovered.
+
+It looks like the Freesat App gets the information is displays (Channel listings, Showcase, On Demand apps) directly from the Freesat box
+
+Examples are
+
+* GET /rc/locale - Get the Serial number, current Postcode and number of tuners for the box
+* GET /json/nownextall/281/62 - Not sure on the numbers but returns Now and Next programme information
+* GET /ms/channels/json/chlist/281/62 - Channel Listing
+* GET /ms3/regional/sc/json/281/62 - Showcase information
+* GET /ms3/regional/od/json/281/62 - On Demand App listing
+* GET /rc/apps/Netflix - Get Netflix status
+* GET /rc/power - Get Power status
+* POST /rc/power - change Power status
+* Open one of the On Demand Apps
+* Open an item from a list of Showcase items. 
+This includes opening a program directly in the BBC iPlayer app
+Should work with others (Demand 5  etc)
 
 ## Authors
 
