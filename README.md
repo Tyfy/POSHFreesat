@@ -4,7 +4,7 @@ PowerShell to discover Freesat Set Top Boxes on a local network and send command
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -40,10 +40,6 @@ There are a number of other things that the Freesat App can send to the box that
 Examples are
 
 * GET /rc/locale - Get the Serial number, current Postcode and number of tuners for the box
-* GET /json/nownextall/281/62 - Not sure on the numbers but returns Now and Next programme information
-* GET /ms/channels/json/chlist/281/62 - Channel Listing
-* GET /ms3/regional/sc/json/281/62 - Showcase information
-* GET /ms3/regional/od/json/281/62 - On Demand App listing
 * GET /rc/apps/Netflix - Get Netflix status
 * GET /rc/power - Get Power status
 * POST /rc/power - change Power status
@@ -52,16 +48,23 @@ Examples are
 This includes opening a program directly in the BBC iPlayer app
 Should work with others (Demand 5  etc)
 
-It looks like the Freesat App gets the information is displays (Channel listings, Showcase, On Demand apps) directly from the Freesat box
+The Freesat App gets the information it displays (Channel listings, Showcase, On Demand apps) from the Internet
 
-## Authors
+The following calls are being made with basic authentication and depending on the location the numbers change to indicate service and region.
 
-* **Richard Lewis** - *Initial work* - [Tyfy](https://github.com/Tyfy)
+* GET http://fdp-regional-v1-0.gcprod1.freetime-platform.net/ms3/regional/sc/json/281/621
+* GET http://fdp-regional-v1-0.gcprod1.freetime-platform.net/ms3/regional/od/json/281/62
+* GET http://fdp-sv23-ms-ip-epg-v1-0.gcprod1.freetime-platform.net/json/nownextall/281/62
+* GET http://fdp-sv09-channel-list-v2-0.gcprod1.freetime-platform.net/ms/channels/json/chlist/281/61
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details
+* 281 refers to "FreeSat Scotland G2"
+* 62 is “Scotland/BorderSco”
 
-## Acknowledgments
+Look for
 
-* [Chris4sox](http://chickenshell.blogspot.co.uk/) article on [Controlling Roku with PowerShell](http://chickenshell.blogspot.co.uk/2015/02/roku-controls-with-powershell.html) for pointing me in teh right direction with the SSDP code
+```
+<Service name="FreeSat" type="satellite" />
+```
+
+In the Countries.cfg file
