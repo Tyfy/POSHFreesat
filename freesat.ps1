@@ -131,7 +131,7 @@ Function SendRemoteCode($serialNumber, $code)
 
 	if($Global:FreesatBoxURI -ne $null)
 	{
-		$Global:FreesatBoxURI += "/rc/remote"
+		$freesatBoxURI += "/rc/remote"
 		
 		$body = '<?xml version="1.0" ?><remote><key code="'+$code+'"/></remote>'
 		
