@@ -54,7 +54,7 @@
 #>
 
 # store this so we don't have to discover the box for each keypress
-$Global:FreesatBoxURI = null
+$Global:FreesatBoxURI = $null
 
 Function DiscoverFreesatBox($SerialNumber){
 
@@ -124,12 +124,12 @@ MX:3
 
 Function SendRemoteCode($serialNumber, $code)
 {
-	if($Global:FreesatBoxURI -eq null)
+	if($Global:FreesatBoxURI -eq $null)
 	{
 		$Global:FreesatBoxURI = DiscoverFreesatBox -SerialNumber $serialNumber
 	}
 
-	if($Global:FreesatBoxURI -ne null)
+	if($Global:FreesatBoxURI -ne $null)
 	{
 		$Global:FreesatBoxURI += "/rc/remote"
 		
